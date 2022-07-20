@@ -1,5 +1,6 @@
 package shopping;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +70,11 @@ public class Cart extends CartOperations{
     @Override
     public void getCartTotalPrice() {
 
-       //Double totalPrice = cartItems.stream().reduce(0.0, (subtotal, cartItem) -> subtotal + cartItem.getPrice());;
+        Double totalPrice = cartItems.stream()
+        .map(cartItem -> cartItem.getPrice())
+        .reduce(0.0, (subtotal, cartItem) -> subtotal + cartItem);
+
+        System.out.println(totalPrice);
 
     }
 

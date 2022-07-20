@@ -25,6 +25,7 @@ public class UserScreen implements UserInterface{
         System.out.println("2 - Itens no carrinho");
         System.out.println("3 - Quantidade de itens no carrinho");
         System.out.println("4 - Listar preços do carrinho");
+        System.out.println("5 - Preço total do carrinho");
         System.out.println("0 - Sair");
         
     }
@@ -77,6 +78,9 @@ public class UserScreen implements UserInterface{
                 case 4:
                     showCartPrices();
                     break;
+                case 5:
+                    showCartTotalPrice();
+                    break;
                 case 0:
                     //Saindo fora
                     System.out.println("Bye!");
@@ -85,10 +89,10 @@ public class UserScreen implements UserInterface{
                 default:
                     break;
             }
-            
         }while(opt != 0);
         
     }
+
 
     //menu de produtos para adicionar ou remover do carrinho
     private void subMenu() {
@@ -156,6 +160,12 @@ public class UserScreen implements UserInterface{
     private void showCartQuantity() {
         System.out.println(" -> Total de itens no carrinho");
         cart.itemsCount();
+    }
+
+    
+    private void showCartTotalPrice() {
+        System.out.println(" -> Valor total do carrinho");
+        cart.getCartTotalPrice();
     }
 
     //apresentando lista de preços do carrinho
